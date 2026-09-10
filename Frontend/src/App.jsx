@@ -3,12 +3,9 @@ import React, { useEffect, useState } from 'react';
 function App() {
   const [authCode, setAuthCode] = useState(null);
 
-  // THAY THẾ BẰNG THÔNG TIN CỦA BẠN
-  // Lấy Client Key trong mục App Details trên TikTok Developer Portal
-  const CLIENT_KEY = 'ĐIỀN_CLIENT_KEY_CỦA_BẠN_VÀO_ĐÂY'; 
-  
-  // Phải khớp 100% với Redirect URI bạn đã cấu hình trên TikTok
-  const REDIRECT_URI = 'https://tiktok-extension-production-4f69.up.railway.app/'; 
+ // Lấy dữ liệu từ file .env theo chuẩn của Vite
+  const CLIENT_KEY = import.meta.env.VITE_TIKTOK_CLIENT_KEY; 
+  const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
 
   useEffect(() => {
     // Khi trang load, kiểm tra xem trên URL có biến "code" do TikTok trả về không
